@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iron Fitness CTI | Academia em Cuiabá - MT</title>
+  <meta name="description" content="16 anos de resultados em Cuiabá. Musculação, treino funcional e muito mais. Jardim Imperial, Cuiabá - MT." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --red:      #F97316;
+      --red-dk:   #C2570A;
+      --red-lt:   rgba(249,115,22,.12);
+      --black:    #0A0A0A;
+      --dark:     #111111;
+      --dark-2:   #1A1A1A;
+      --dark-3:   #242424;
+      --gray:     #888888;
+      --gray-lt:  #CCCCCC;
+      --white:    #FFFFFF;
+      --gold:     #F5C518;
+      --r-sm: 6px; --r-md: 12px; --r-lg: 20px;
+      --sh-red: 0 8px 32px rgba(249,115,22,.35);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; color: var(--white); background: var(--black); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    svg { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+    .container { max-width: 1140px; margin-inline: auto; padding-inline: 24px; }
+
+    /* TYPOGRAPHY */
+    .label {
+      display: inline-block; font-family: 'Barlow Condensed', sans-serif;
+      font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--red); background: var(--red-lt); border: 1px solid rgba(249,115,22,.25);
+      padding: 5px 14px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; text-transform: uppercase;
+      line-height: 1.05; letter-spacing: .01em; margin-bottom: 14px;
+    }
+    .title em { font-style: normal; color: var(--red); }
+    .sub { font-size: .95rem; color: var(--gray); line-height: 1.75; max-width: 540px; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 1rem; letter-spacing: .06em; text-transform: uppercase;
+      padding: 14px 32px; border-radius: var(--r-sm); cursor: pointer; border: none;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-red   { background: var(--red); color: var(--white); box-shadow: var(--sh-red); }
+    .btn-red:hover { box-shadow: 0 12px 40px rgba(249,115,22,.5); }
+    .btn-ghost { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.25); }
+    .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+    .btn-wpp   { background: #25D366; color: var(--white); box-shadow: 0 8px 24px rgba(37,211,102,.35); }
+    .btn-dark  { background: var(--dark-3); color: var(--white); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 70px; }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 1.5rem; letter-spacing: .04em; text-transform: uppercase;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: .88rem; font-weight: 600; color: var(--gray); letter-spacing: .04em; text-transform: uppercase; transition: color .15s; }
+    .nav-links a:hover { color: var(--red); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--white); }
+
+    /* HERO */
+    .hero {
+      min-height: 96vh;
+      background: var(--black);
+      padding-block: 80px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    /* grade diagonal de fundo */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, transparent 40%, rgba(249,115,22,.06) 100%),
+        repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 40px,
+          rgba(255,255,255,.018) 40px,
+          rgba(255,255,255,.018) 41px
+        );
+      pointer-events: none;
+    }
+    /* linha vermelha lateral */
+    .hero::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0; left: calc(50% - 1px);
+      width: 1px; background: linear-gradient(to bottom, transparent, var(--red), transparent);
+      opacity: .4; pointer-events: none;
+    }
+    .hero-text { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif; font-size: .78rem;
+      font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 28px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--red); }
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 6.5vw, 5.5rem); font-weight: 900;
+      text-transform: uppercase; line-height: .96;
+      letter-spacing: .01em; margin-bottom: 28px;
+    }
+    .hero-title em { font-style: normal; color: var(--red); display: block; }
+    .hero-title .thin { font-weight: 400; color: var(--gray-lt); }
+    .hero-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.75; margin-bottom: 40px; max-width: 420px; }
+    .hero-sub strong { color: var(--white); }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 0; margin-top: 52px; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .hero-stat { flex: 1; padding-right: 32px; border-right: 1px solid rgba(255,255,255,.08); }
+    .hero-stat:last-child { border-right: none; padding-right: 0; padding-left: 32px; }
+    .hero-stat:not(:first-child):not(:last-child) { padding-left: 32px; }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem;
+      font-weight: 900; color: var(--red); line-height: 1;
+    }
+    .stat-lbl { font-size: .8rem; color: var(--gray); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* HERO VISUAL */
+    .hero-visual { position: relative; z-index: 1; }
+    .hero-img-wrap {
+      position: relative; border-radius: var(--r-lg); overflow: hidden;
+      min-height: 520px;
+      background: var(--dark-2);
+      box-shadow: 0 32px 80px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.06);
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    /* painel visual quando não há foto */
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+    .hero-img-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249,115,22,.18) 0%, transparent 65%),
+        repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(249,115,22,.03) 30px, rgba(249,115,22,.03) 31px);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-bg svg { opacity: .06; }
+    /* badge flutuante */
+    .hero-badge {
+      position: relative; z-index: 2; margin: 24px;
+      background: rgba(10,10,10,.75); backdrop-filter: blur(12px);
+      border: 1px solid rgba(249,115,22,.3); border-radius: var(--r-md);
+      padding: 16px 20px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .badge-icon {
+      width: 44px; height: 44px; background: var(--red); border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .badge-text-top { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--white); }
+    .badge-text-bot { font-size: .75rem; color: var(--gray); margin-top: 2px; }
+    /* grade de métricas no hero visual */
+    .hero-metrics-grid {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: rgba(255,255,255,.06); flex: 1;
+    }
+    .hero-metric {
+      background: var(--dark-2); padding: 28px 24px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .hero-metric.accent { background: var(--red); }
+    .hm-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--white); line-height: 1; }
+    .hm-lbl { font-size: .75rem; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .07em; margin-top: 5px; }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--red); padding: 18px 0; overflow: hidden;
+      position: relative;
+    }
+    .trust-scroll {
+      display: flex; gap: 56px; align-items: center;
+      white-space: nowrap; animation: scroll-x 28s linear infinite;
+    }
+    .trust-item {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: .95rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--white); flex-shrink: 0;
+    }
+    .trust-dot { width: 5px; height: 5px; background: rgba(255,255,255,.5); border-radius: 999px; }
+    @keyframes scroll-x { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* PLANOS */
+    .plans { padding: 100px 0; background: var(--dark); }
+    .plans-head { text-align: center; margin-bottom: 64px; }
+    .plans-head .sub { margin-inline: auto; }
+    .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+
+    .plan-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--r-lg); padding: 36px 28px;
+      display: flex; flex-direction: column; gap: 0;
+      position: relative; overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+    .plan-card:hover { transform: translateY(-6px); border-color: rgba(249,115,22,.4); }
+    .plan-card.featured {
+      background: var(--red);
+      border-color: var(--red);
+      transform: scale(1.03);
+    }
+    .plan-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+    .plan-card.featured::before {
+      content: 'MAIS POPULAR';
+      position: absolute; top: 16px; right: -28px;
+      background: var(--gold); color: #000;
+      font-family: 'Barlow Condensed', sans-serif; font-size: .7rem; font-weight: 800;
+      letter-spacing: .1em; padding: 5px 40px;
+      transform: rotate(45deg);
+    }
+    .plan-label {
+      font-family: 'Barlow Condensed', sans-serif; font-size: .75rem;
+      font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 10px;
+    }
+    .plan-card.featured .plan-label { color: rgba(255,255,255,.75); }
+    .plan-name {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem;
+      font-weight: 900; text-transform: uppercase; color: var(--white); margin-bottom: 24px;
+    }
+    .plan-price-wrap { margin-bottom: 28px; }
+    .plan-from { font-size: .8rem; color: var(--gray); margin-bottom: 2px; }
+    .plan-card.featured .plan-from { color: rgba(255,255,255,.65); }
+    .plan-price {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 3.4rem; line-height: 1; color: var(--white);
+    }
+    .plan-price sup { font-size: 1.4rem; vertical-align: top; margin-top: .5rem; margin-right: 2px; }
+    .plan-price sub { font-size: .9rem; font-weight: 600; vertical-align: bottom; margin-bottom: .5rem; color: rgba(255,255,255,.7); }
+    .plan-period { font-size: .8rem; color: var(--gray); margin-top: 4px; }
+    .plan-card.featured .plan-period { color: rgba(255,255,255,.65); }
+    .plan-divider { border: none; border-top: 1px solid rgba(255,255,255,.1); margin-bottom: 24px; }
+    .plan-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; flex: 1; }
+    .plan-feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .88rem; color: var(--gray-lt);
+    }
+    .plan-card.featured .plan-feature { color: rgba(255,255,255,.9); }
+    .feat-check {
+      width: 20px; height: 20px; border-radius: 999px; flex-shrink: 0;
+      background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center;
+    }
+    .plan-card:not(.featured) .feat-check { background: var(--red-lt); color: var(--red); }
+    .plan-cta { margin-top: auto; }
+    .plan-btn {
+      width: 100%; padding: 14px; text-align: center;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: 1rem; letter-spacing: .08em; text-transform: uppercase;
+      border-radius: var(--r-sm); cursor: pointer; border: none;
+      transition: opacity .18s, transform .18s;
+    }
+    .plan-btn:hover { opacity: .88; transform: translateY(-1px); }
+    .plan-btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,.2);
+    }
+    .plan-btn-outline:hover { border-color: var(--red); color: var(--red); }
+    .plan-btn-solid { background: var(--white); color: var(--red); }
+    .plan-disclaimer { text-align: center; font-size: .75rem; color: var(--gray); margin-top: 24px; margin-bottom: 4px; opacity: .7; position: relative; z-index: 1; }
+    .plan-note {
+      text-align: center; margin-top: 28px;
+      font-size: .82rem; color: var(--gray);
+    }
+    .plan-note a { color: var(--red); }
+
+    /* MODALIDADES */
+    .modalities { padding: 100px 0; background: var(--black); }
+    .modalities-head { margin-bottom: 56px; }
+    .mod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .mod-card {
+      background: var(--dark-2); border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--r-md); padding: 32px 24px;
+      transition: border-color .2s, transform .2s; cursor: default;
+      position: relative; overflow: hidden;
+    }
+    .mod-card::before {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .25s;
+    }
+    .mod-card:hover { border-color: rgba(249,115,22,.3); transform: translateY(-4px); }
+    .mod-card:hover::before { transform: scaleX(1); }
+    .mod-icon {
+      width: 48px; height: 48px; background: var(--red-lt);
+      border-radius: var(--r-sm); display: flex; align-items: center;
+      justify-content: center; color: var(--red); margin-bottom: 16px;
+    }
+    .mod-name {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem;
+      font-weight: 800; text-transform: uppercase; color: var(--white); margin-bottom: 8px;
+    }
+    .mod-desc { font-size: .83rem; color: var(--gray); line-height: 1.65; }
+
+    /* DIFERENCIAIS */
+    .why { padding: 100px 0; background: var(--dark); }
+    .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .why-left { position: relative; }
+    .why-main-card {
+      background: var(--red); border-radius: var(--r-lg); padding: 48px 40px;
+      position: relative; overflow: hidden;
+    }
+    .why-main-card::before {
+      content: '';
+      position: absolute; bottom: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 999px;
+      background: rgba(0,0,0,.2);
+    }
+    .why-years {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 6rem;
+      font-weight: 900; line-height: 1; color: var(--white);
+    }
+    .why-years-lbl { font-size: .9rem; color: rgba(255,255,255,.75); margin-bottom: 36px; text-transform: uppercase; letter-spacing: .08em; }
+    .why-metrics { display: flex; gap: 36px; flex-wrap: wrap; }
+    .why-m-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; color: var(--white); }
+    .why-m-lbl { font-size: .75rem; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .06em; }
+    /* card secundário flutuante */
+    .why-sub-card {
+      position: absolute; bottom: -72px; right: -24px;
+      background: var(--dark-3); border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--r-md); padding: 20px 24px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.5);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .sub-card-icon {
+      width: 40px; height: 40px; background: var(--red);
+      border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center;
+    }
+    .sub-card-title { font-size: .65rem; color: var(--gray); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+    .sub-card-row { display: flex; align-items: center; gap: 8px; }
+    .sub-card-row + .sub-card-row { margin-top: 6px; }
+    .sub-card-day { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--gray-lt); min-width: 72px; }
+    .sub-card-sep { color: var(--red); font-weight: 700; font-size: 1.15rem; }
+    .sub-card-hour { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 900; color: var(--white); }
+
+    .why-right { display: flex; flex-direction: column; gap: 32px; }
+    .diff-item { display: flex; gap: 20px; align-items: flex-start; }
+    .diff-num {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem;
+      font-weight: 900; color: var(--red); line-height: 1;
+      opacity: .4; flex-shrink: 0; width: 44px;
+    }
+    .diff-title {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem;
+      font-weight: 800; text-transform: uppercase; color: var(--white); margin-bottom: 6px;
+    }
+    .diff-text { font-size: .85rem; color: var(--gray); line-height: 1.7; }
+
+    /* DEPOIMENTOS */
+    .reviews { padding: 100px 0; background: var(--black); }
+    .reviews-head { text-align: center; margin-bottom: 64px; }
+    .reviews-head .sub { margin-inline: auto; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .review-card {
+      background: var(--dark-2); border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--r-md); padding: 32px;
+      transition: border-color .2s;
+    }
+    .review-card:hover { border-color: rgba(249,115,22,.3); }
+    .review-stars { display: flex; gap: 4px; margin-bottom: 18px; }
+    .review-text { font-size: .9rem; color: var(--gray-lt); line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 14px; }
+    .review-avatar {
+      width: 42px; height: 42px; border-radius: 999px; background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: .9rem; color: var(--white); flex-shrink: 0;
+    }
+    .review-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: .95rem; color: var(--white); text-transform: uppercase; }
+    .review-meta { font-size: .75rem; color: var(--gray); margin-top: 2px; }
+    .reviews-rating {
+      text-align: center; margin-top: 56px; padding-top: 56px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+    }
+    .rating-num { font-family: 'Barlow Condensed', sans-serif; font-size: 5rem; font-weight: 900; color: var(--red); line-height: 1; }
+    .rating-stars { display: flex; gap: 4px; margin-bottom: 6px; }
+    .rating-count { font-size: .85rem; color: var(--gray); }
+
+    /* CTA */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--red);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .cta-section::before {
+      content: 'IRON';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 22rem; color: rgba(0,0,0,.08); white-space: nowrap;
+      pointer-events: none; line-height: 1; letter-spacing: -.02em;
+    }
+    .cta-section .label { background: rgba(255,255,255,.2); color: var(--white); border-color: rgba(255,255,255,.3); }
+    .cta-section .title { color: var(--white); }
+    .cta-section .sub { color: rgba(255,255,255,.8); margin-inline: auto; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 40px; position: relative; z-index: 1; }
+
+    /* FOOTER */
+    footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,.07); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo-text {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 1.6rem; text-transform: uppercase; color: var(--white); margin-bottom: 16px;
+    }
+    .footer-logo-text span { color: var(--red); }
+    .footer-desc { font-size: .85rem; color: var(--gray); line-height: 1.75; max-width: 260px; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 10px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: var(--r-sm);
+      background: var(--dark-3); display: flex; align-items: center;
+      justify-content: center; color: var(--gray);
+      transition: background .15s, color .15s;
+    }
+    .social-btn:hover { background: var(--red); color: var(--white); }
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: .9rem; text-transform: uppercase; letter-spacing: .08em;
+      color: var(--white); margin-bottom: 18px;
+    }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: .85rem; color: var(--gray); display: inline-flex;
+      align-items: center; gap: 7px; transition: color .15s;
+    }
+    .footer-col a:hover { color: var(--red); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07); padding-top: 28px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px; font-size: .82rem; color: var(--gray);
+    }
+
+    /* WPP FLOAT */
+    .wpp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 58px; height: 58px; background: #25D366; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); box-shadow: 0 4px 24px rgba(37,211,102,.45);
+      animation: pulse-wpp 2.5s ease-in-out infinite; transition: transform .18s;
+    }
+    .wpp-float:hover { transform: scale(1.08); animation: none; }
+    @keyframes pulse-wpp {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.45); }
+      50% { box-shadow: 0 4px 36px rgba(37,211,102,.7), 0 0 0 8px rgba(37,211,102,.12); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: unset; padding-block: 60px 40px; gap: 40px; }
+      .hero::after { display: none; }
+      .why-inner { grid-template-columns: 1fr; gap: 48px; }
+      .why-sub-card { position: static; margin-top: 20px; }
+    }
+    @media (max-width: 768px) {
+      .mod-grid { grid-template-columns: repeat(2, 1fr); }
+      .hamburger { display: block; }
+      .nav-links { display: none; }
+      .nav-logo { font-size: 1.1rem; white-space: nowrap; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > div:first-child { grid-column: 1 / -1; }
+      .plan-card.featured { transform: none; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 0; }
+      .hero-stat, .hero-stat:last-child, .hero-stat:not(:first-child):not(:last-child) { border-right: none; border-left: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+      .hero-stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG SPRITE -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="ic-dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 5v14M18 5v14M2 9h4M18 9h4M2 15h4M18 15h4M6 9h12M6 15h12"/>
+  </symbol>
+  <symbol id="ic-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+  </symbol>
+  <symbol id="ic-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </symbol>
+  <symbol id="ic-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+  </symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </symbol>
+  <symbol id="ic-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20 6 9 17 4 12"/>
+  </symbol>
+  <symbol id="ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+  </symbol>
+  <symbol id="ic-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+  </symbol>
+  <symbol id="ic-whatsapp" viewBox="0 0 32 32">
+    <path fill="currentColor" d="M16 2C8.28 2 2 8.28 2 16c0 2.46.65 4.8 1.8 6.82L2 30l7.37-1.77A13.94 13.94 0 0 0 16 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.5c-2.2 0-4.27-.6-6.04-1.64l-.43-.26-4.37 1.05 1.1-4.25-.28-.45A11.47 11.47 0 0 1 4.5 16C4.5 9.6 9.6 4.5 16 4.5S27.5 9.6 27.5 16 22.4 27.5 16 27.5zm6.3-8.57c-.34-.17-2.02-1-2.34-1.11-.32-.11-.55-.17-.78.17-.23.34-.9 1.11-1.1 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.7-2.01-1.9-2.35-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.88-1.07-2.57-.28-.68-.57-.58-.78-.59h-.66c-.23 0-.6.09-.91.43-.32.34-1.2 1.17-1.2 2.86s1.23 3.32 1.4 3.55c.17.23 2.42 3.7 5.87 5.18.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.13.66-.1 2.02-.83 2.3-1.62.29-.8.29-1.48.2-1.62-.08-.14-.31-.23-.65-.4z"/>
+  </symbol>
+  <symbol id="ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/>
+  </symbol>
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+  </symbol>
+  <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  </symbol>
+  <symbol id="ic-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </symbol>
+  <symbol id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+  </symbol>
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+  </symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+  </symbol>
+  <symbol id="ic-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+  </symbol>
+  <symbol id="ic-run" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="13" cy="4" r="2"/><path d="m14.5 10.5-2 4-4 1.5"/><path d="m16.5 13-2-2.5"/><path d="m9 17 2-4.5 3 2.5 2-3"/>
+  </symbol>
+  <symbol id="ic-bike" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/>
+    <circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/>
+  </symbol>
+  <symbol id="ic-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><line x1="12" y1="12" x2="12" y2="16"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-logo">Iron <span>Fitness</span> CTI</div>
+    <ul class="nav-links">
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#modalidades">Modalidades</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#avaliacoes">Avaliações</a></li>
+    </ul>
+    <a href="https://wa.me/5565996187127" target="_blank" class="btn btn-red" style="padding:8px 14px;font-size:.75rem;white-space:nowrap;">
+      <svg width="13" height="13"><use href="#ic-msg"/></svg> Matricule-se
+    </a>
+    <button class="hamburger" aria-label="Menu" id="hambtn">
+      <svg width="24" height="24"><use href="#ic-menu"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%;">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Jardim Imperial — Cuiabá, MT</div>
+      <h1 class="hero-title">
+        <span class="thin">Forje</span>
+        <em>o melhor</em>
+        de você
+      </h1>
+      <p class="hero-sub">
+        <strong>16 anos</strong> transformando vidas em Cuiabá. Musculação, treino funcional, aeróbico e muito mais — com equipamentos de qualidade e profissionais dedicados ao seu resultado.
+      </p>
+      <div class="hero-btns">
+        <a href="#planos" class="btn btn-red">
+          <svg width="17" height="17"><use href="#ic-arrow"/></svg> Ver planos
+        </a>
+        <a href="https://wa.me/5565996187127" target="_blank" class="btn btn-ghost">
+          <svg width="17" height="17"><use href="#ic-msg"/></svg> WhatsApp
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="stat-num">16</div>
+          <div class="stat-lbl">Anos de história</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">8.8k</div>
+          <div class="stat-lbl">Seguidores</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">177+</div>
+          <div class="stat-lbl">Avaliações</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <div class="hero-img-bg">
+          <svg viewBox="0 0 340 340" width="340" height="340" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="50" y="155" width="240" height="30" rx="8" fill="#F97316"/>
+            <rect x="30" y="140" width="40" height="60" rx="10" fill="#F97316"/>
+            <rect x="270" y="140" width="40" height="60" rx="10" fill="#F97316"/>
+            <rect x="20" y="148" width="16" height="44" rx="6" fill="#F97316"/>
+            <rect x="304" y="148" width="16" height="44" rx="6" fill="#F97316"/>
+          </svg>
+        </div>
+        <div class="hero-metrics-grid">
+          <div class="hero-metric accent">
+            <div class="hm-num">16</div>
+            <div class="hm-lbl">Anos de história</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hm-num">+800</div>
+            <div class="hm-lbl">Alunos ativos</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hm-num">6</div>
+            <div class="hm-lbl">Modalidades</div>
+          </div>
+          <div class="hero-metric accent">
+            <div class="hm-num" style="font-size:1.5rem;line-height:1.2">Jardim<br>Imperial</div>
+            <div class="hm-lbl">Cuiabá — MT</div>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <div class="badge-icon"><svg width="22" height="22"><use href="#ic-dumbbell"/></svg></div>
+          <div>
+            <div class="badge-text-top">Musculação Climatizada</div>
+            <div class="badge-text-bot">Equipamentos profissionais de alta qualidade</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-scroll">
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-dumbbell"/></svg> Musculação</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-zap"/></svg> Treino Funcional</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-flame"/></svg> Aeróbico</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-shield"/></svg> Área Climatizada</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-award"/></svg> 16 Anos de Resultado</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-clock"/></svg> Seg–Sex 05h30–21h</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-pin"/></svg> Jardim Imperial, Cuiabá</span>
+    <span class="trust-dot"></span>
+    <!-- duplicado -->
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-dumbbell"/></svg> Musculação</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-zap"/></svg> Treino Funcional</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-flame"/></svg> Aeróbico</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-shield"/></svg> Área Climatizada</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-award"/></svg> 16 Anos de Resultado</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-clock"/></svg> Seg–Sex 05h30–21h</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><svg width="14" height="14"><use href="#ic-pin"/></svg> Jardim Imperial, Cuiabá</span>
+    <span class="trust-dot"></span>
+  </div>
+</div>
+
+<!-- PLANOS -->
+<section class="plans" id="planos">
+  <div class="container">
+    <div class="plans-head">
+      <span class="label">Planos &amp; Preços</span>
+      <h2 class="title">Escolha o plano <em>ideal</em> para você</h2>
+      <p class="sub">Planos para todos os objetivos e bolsos. Quanto mais você se comprometer, mais você economiza.</p>
+    </div>
+    <div class="plans-grid">
+
+      <!-- MENSAL -->
+      <div class="plan-card">
+        <div class="plan-label">Sem fidelidade</div>
+        <div class="plan-name">Mensal</div>
+        <div class="plan-price-wrap">
+          <div class="plan-from">A partir de</div>
+          <div class="plan-price"><sup>R$</sup>109<sub>,90</sub></div>
+          <div class="plan-period">por mês</div>
+        </div>
+        <hr class="plan-divider"/>
+        <ul class="plan-features">
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Acesso livre à musculação
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Área climatizada
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Avaliação física
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Renovação mensal
+          </li>
+        </ul>
+        <div class="plan-cta">
+          <a href="https://wa.me/5565996187127?text=Quero+saber+mais+sobre+o+Plano+Mensal" target="_blank">
+            <button class="plan-btn plan-btn-outline">Quero este plano</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- TRIMESTRAL — DESTAQUE -->
+      <div class="plan-card featured">
+        <div class="plan-label">3 meses</div>
+        <div class="plan-name">Trimestral</div>
+        <div class="plan-price-wrap">
+          <div class="plan-from">A partir de</div>
+          <div class="plan-price"><sup>R$</sup>89<sub>,90</sub></div>
+          <div class="plan-period">por mês · R$ 269,70 total</div>
+        </div>
+        <hr class="plan-divider" style="border-color:rgba(255,255,255,.2)"/>
+        <ul class="plan-features">
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Tudo do plano mensal
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Acesso a aulas coletivas
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Acompanhamento de treino
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Economia de 18%
+          </li>
+        </ul>
+        <div class="plan-cta">
+          <a href="https://wa.me/5565996187127?text=Quero+saber+mais+sobre+o+Plano+Trimestral" target="_blank">
+            <button class="plan-btn plan-btn-solid">Quero este plano</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- SEMESTRAL -->
+      <div class="plan-card">
+        <div class="plan-label">6 meses</div>
+        <div class="plan-name">Semestral</div>
+        <div class="plan-price-wrap">
+          <div class="plan-from">A partir de</div>
+          <div class="plan-price"><sup>R$</sup>79<sub>,90</sub></div>
+          <div class="plan-period">por mês · R$ 479,40 total</div>
+        </div>
+        <hr class="plan-divider"/>
+        <ul class="plan-features">
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Tudo do plano trimestral
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Treino personalizado
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Prioridade no agendamento
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Economia de 27%
+          </li>
+        </ul>
+        <div class="plan-cta">
+          <a href="https://wa.me/5565996187127?text=Quero+saber+mais+sobre+o+Plano+Semestral" target="_blank">
+            <button class="plan-btn plan-btn-outline">Quero este plano</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- ANUAL -->
+      <div class="plan-card">
+        <div class="plan-label">12 meses</div>
+        <div class="plan-name">Anual</div>
+        <div class="plan-price-wrap">
+          <div class="plan-from">A partir de</div>
+          <div class="plan-price"><sup>R$</sup>69<sub>,90</sub></div>
+          <div class="plan-period">por mês · R$ 838,80 total</div>
+        </div>
+        <hr class="plan-divider"/>
+        <ul class="plan-features">
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Tudo do plano semestral
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Check-up trimestral grátis
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Acesso ilimitado a todas as aulas
+          </li>
+          <li class="plan-feature">
+            <div class="feat-check"><svg width="12" height="12"><use href="#ic-check"/></svg></div>
+            Economia de 36%
+          </li>
+        </ul>
+        <div class="plan-cta">
+          <a href="https://wa.me/5565996187127?text=Quero+saber+mais+sobre+o+Plano+Anual" target="_blank">
+            <button class="plan-btn plan-btn-outline">Quero este plano</button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <p class="plan-disclaimer">* Valores ilustrativos. Confirme os preços atuais diretamente com a academia.</p>
+    <p class="plan-note">
+      Não tem certeza qual plano escolher?
+      <a href="https://wa.me/5565996187127" target="_blank">Fale com a gente no WhatsApp</a> — te ajudamos a decidir.
+    </p>
+  </div>
+</section>
+
+<!-- MODALIDADES -->
+<section class="modalities" id="modalidades">
+  <div class="container">
+    <div class="modalities-head">
+      <span class="label">O que oferecemos</span>
+      <h2 class="title">Modalidades para <em>todo objetivo</em></h2>
+      <p class="sub">De iniciantes a avançados — temos o treino certo para o seu nível e propósito.</p>
+    </div>
+    <div class="mod-grid">
+      <div class="mod-card">
+        <div class="mod-icon"><svg width="26" height="26"><use href="#ic-dumbbell"/></svg></div>
+        <div class="mod-name">Musculação</div>
+        <p class="mod-desc">Equipamentos profissionais e área climatizada para hipertrofia, força e definição com máxima segurança.</p>
+      </div>
+      <div class="mod-card">
+        <div class="mod-icon"><svg width="26" height="26"><use href="#ic-zap"/></svg></div>
+        <div class="mod-name">Treino Funcional</div>
+        <p class="mod-desc">Exercícios que integram força, equilíbrio e mobilidade — resultados práticos para o dia a dia e para o esporte.</p>
+      </div>
+      <div class="mod-card">
+        <div class="mod-icon"><svg width="26" height="26"><use href="#ic-flame"/></svg></div>
+        <div class="mod-name">Aeróbico</div>
+        <p class="mod-desc">Cardio de alto impacto e baixo impacto para acelerar o metabolismo, queimar gordura e melhorar o condicionamento.</p>
+      </div>
+      <div class="mod-card">
+        <div class="mod-icon"><svg width="26" height="26"><use href="#ic-run"/></svg></div>
+        <div class="mod-name">Iniciação Esportiva</div>
+        <p class="mod-desc">Programa para quem está começando: técnica correta, progressão segura e motivação para criar o hábito.</p>
+      </div>
+      <div class="mod-card">
+        <div class="mod-icon"><svg width="26" height="26"><use href="#ic-target"/></svg></div>
+        <div class="mod-name">Treino Especializado</div>
+        <p class="mod-desc">Periodização e acompanhamento individualizado para atletas e alunos com objetivos específicos e avançados.</p>
+      </div>
+      <div class="mod-card">
+        <div class="mod-icon"><svg width="26" height="26"><use href="#ic-heart"/></svg></div>
+        <div class="mod-name">Saúde &amp; Bem-Estar</div>
+        <p class="mod-desc">Treinos adaptativos para qualidade de vida, controle de peso, reabilitação e longevidade com orientação profissional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="why" id="sobre">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-left">
+        <div class="why-main-card">
+          <div class="why-years">16</div>
+          <div class="why-years-lbl">anos em Cuiabá</div>
+          <div class="why-metrics">
+            <div>
+              <div class="why-m-num">8.8k</div>
+              <div class="why-m-lbl">Seguidores</div>
+            </div>
+            <div>
+              <div class="why-m-num">177+</div>
+              <div class="why-m-lbl">Avaliações</div>
+            </div>
+            <div>
+              <div class="why-m-num">2010</div>
+              <div class="why-m-lbl">Fundação</div>
+            </div>
+          </div>
+        </div>
+        <div class="why-sub-card">
+          <div class="sub-card-icon"><svg width="20" height="20"><use href="#ic-clock"/></svg></div>
+          <div>
+            <div class="sub-card-title">Horário de funcionamento</div>
+            <div class="sub-card-row">
+              <span class="sub-card-day">Seg – Sex</span>
+              <span class="sub-card-sep">|</span>
+              <span class="sub-card-hour">05h30 – 21h</span>
+            </div>
+            <div class="sub-card-row">
+              <span class="sub-card-day">Sábado</span>
+              <span class="sub-card-sep">|</span>
+              <span class="sub-card-hour">07h – 10h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-right">
+        <span class="label">Por que a Iron Fitness?</span>
+        <h2 class="title" style="margin-bottom:36px;">Resultado não é sorte, é <em>método</em></h2>
+        <div class="diff-item">
+          <div class="diff-num">01</div>
+          <div>
+            <div class="diff-title">Professores qualificados</div>
+            <div class="diff-text">Equipe de educadores físicos formados e comprometidos com o seu progresso — do primeiro ao último treino.</div>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-num">02</div>
+          <div>
+            <div class="diff-title">Musculação climatizada</div>
+            <div class="diff-text">Treinar no calor de Cuiabá não é desculpa. Nossa área de musculação é 100% climatizada para o seu conforto.</div>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-num">03</div>
+          <div>
+            <div class="diff-title">Equipamentos de qualidade</div>
+            <div class="diff-text">Aparelhos profissionais, bem mantidos e adequados para todos os níveis — de iniciante a atleta avançado.</div>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-num">04</div>
+          <div>
+            <div class="diff-title">Comunidade de verdade</div>
+            <div class="diff-text">16 anos de história se constroem com pessoas. Aqui você encontra mais do que uma academia — encontra motivação.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVALIAÇÕES -->
+<section class="reviews" id="avaliacoes">
+  <div class="container">
+    <div class="reviews-head">
+      <span class="label">Depoimentos</span>
+      <h2 class="title">Quem treina, <em>recomenda</em></h2>
+      <p class="sub">Veja o que os alunos falam sobre a Iron Fitness CTI no Google.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+        </div>
+        <p class="review-text">"A Iron Fitness tem um trabalho diferenciado. A atenção e o cuidado dos instrutores vale muito!"</p>
+        <div class="review-author">
+          <div class="review-avatar">GS</div>
+          <div>
+            <div class="review-name">G. S.</div>
+            <div class="review-meta">Avaliação no Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+        </div>
+        <p class="review-text">"Treino diferenciado, qualidade no atendimento e bons aparelhos. O melhor da região!"</p>
+        <div class="review-author">
+          <div class="review-avatar">FQ</div>
+          <div>
+            <div class="review-name">F. Q.</div>
+            <div class="review-meta">Avaliação no Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="16" height="16" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+        </div>
+        <p class="review-text">"Treinos funcionais inteligentes que trabalham todos os músculos — e todo dia é um treino diferente. Melhor academia que já frequentei!"</p>
+        <div class="review-author">
+          <div class="review-avatar">MM</div>
+          <div>
+            <div class="review-name">M. M.</div>
+            <div class="review-meta">Avaliação no Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-rating">
+      <div>
+        <div class="rating-num">4.2</div>
+      </div>
+      <div>
+        <div class="rating-stars">
+          <svg width="22" height="22" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="22" height="22" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="22" height="22" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="22" height="22" style="fill:#F5C518;stroke:#F5C518"><use href="#ic-star"/></svg>
+          <svg width="22" height="22" style="fill:rgba(255,255,255,.15);stroke:#F5C518"><use href="#ic-star"/></svg>
+        </div>
+        <div class="rating-count">177 avaliações no Google Meu Negócio</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="https://www.instagram.com/ironfitnesscti/" target="_blank" class="btn btn-ghost" style="display:inline-flex;gap:10px;align-items:center;">
+        <svg width="16" height="16"><use href="#ic-ig"/></svg> Siga a Iron Fitness no Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="label">Comece agora</span>
+    <h2 class="title" style="font-size:clamp(2.4rem,5vw,4rem);">Sua transformação começa <em style="color:var(--black)">hoje</em></h2>
+    <p class="sub" style="color:rgba(255,255,255,.85);margin-inline:auto;max-width:500px;">
+      Entre em contato pelo WhatsApp, conheça a academia ou venha pessoalmente na Av. das Palmeiras, 1000 — Jardim Imperial.
+    </p>
+    <div class="cta-btns">
+      <a href="https://wa.me/5565996187127?text=Olá!+Quero+conhecer+a+Iron+Fitness+CTI" target="_blank" class="btn btn-wpp">
+        <svg width="18" height="18"><use href="#ic-msg"/></svg> Falar no WhatsApp
+      </a>
+      <a href="#planos" class="btn btn-dark">
+        <svg width="18" height="18"><use href="#ic-arrow"/></svg> Ver planos
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-text">Iron <span>Fitness</span> CTI</div>
+        <p class="footer-desc">16 anos transformando vidas em Cuiabá com dedicação, equipamentos de qualidade e profissionais comprometidos com o seu resultado.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/ironfitnesscti/" target="_blank" class="social-btn" aria-label="Instagram"><svg width="15" height="15"><use href="#ic-ig"/></svg></a>
+          <a href="https://www.facebook.com/ironfitnesscti/" target="_blank" class="social-btn" aria-label="Facebook"><svg width="15" height="15"><use href="#ic-fb"/></svg></a>
+          <a href="https://wa.me/5565996187127" target="_blank" class="social-btn" aria-label="WhatsApp"><svg width="15" height="15"><use href="#ic-msg"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Modalidades</h4>
+        <ul>
+          <li><a href="#modalidades"><svg width="12" height="12"><use href="#ic-dumbbell"/></svg> Musculação</a></li>
+          <li><a href="#modalidades"><svg width="12" height="12"><use href="#ic-zap"/></svg> Treino Funcional</a></li>
+          <li><a href="#modalidades"><svg width="12" height="12"><use href="#ic-flame"/></svg> Aeróbico</a></li>
+          <li><a href="#modalidades"><svg width="12" height="12"><use href="#ic-run"/></svg> Iniciação Esportiva</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Academia</h4>
+        <ul>
+          <li><a href="#planos"><svg width="12" height="12"><use href="#ic-award"/></svg> Planos</a></li>
+          <li><a href="#sobre"><svg width="12" height="12"><use href="#ic-info"/></svg> Sobre nós</a></li>
+          <li><a href="#avaliacoes"><svg width="12" height="12"><use href="#ic-star"/></svg> Avaliações</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5565996187127" target="_blank"><svg width="12" height="12"><use href="#ic-msg"/></svg> (65) 99618-7127</a></li>
+
+          <li><a href="https://www.instagram.com/ironfitnesscti/" target="_blank"><svg width="12" height="12"><use href="#ic-ig"/></svg> @ironfitnesscti</a></li>
+          <li><a href="https://maps.google.com/?q=Av.+das+Palmeiras,+1000,+Jardim+Imperial,+Cuiabá+MT" target="_blank"><svg width="12" height="12"><use href="#ic-pin"/></svg> Como chegar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Iron Fitness CTI. Todos os direitos reservados.</span>
+      <span>Jardim Imperial — Cuiabá, MT</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WPP FLOAT -->
+<a href="https://wa.me/5565996187127" target="_blank" class="wpp-float" aria-label="WhatsApp">
+  <svg width="28" height="28"><use href="#ic-whatsapp"/></svg>
+</a>
+
+<script>
+  /* MOBILE NAV */
+  document.getElementById('hambtn').addEventListener('click', function () {
+    const links = document.querySelector('.nav-links');
+    const open = links.style.display === 'flex';
+    links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:#111;padding:24px 32px;gap:20px;z-index:99;border-bottom:1px solid rgba(255,255,255,.08);';
+  });
+
+  /* SMOOTH SCROLL */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  /* HERO GRID FIX MOBILE */
+  function fixHeroGrid() {
+    const heroInner = document.querySelector('.hero .container');
+    if (!heroInner) return;
+    if (window.innerWidth <= 960) {
+      heroInner.style.gridTemplateColumns = '1fr';
+    } else {
+      heroInner.style.gridTemplateColumns = '1fr 1fr';
+    }
+  }
+  fixHeroGrid();
+  window.addEventListener('resize', fixHeroGrid);
+</script>
+</body>
+</html>
